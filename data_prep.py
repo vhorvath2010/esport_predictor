@@ -27,4 +27,4 @@ with open('match_data.csv') as match_data_file:
     np_train = np.array(matches[:split_index])
     np_test = np.array(matches[split_index:])
     np.save('train.npy', np_train, allow_pickle=True)
-    np.save('test.npy', np_train, allow_pickle=True)
+    np.save('test.npy', np_test, allow_pickle=True)
