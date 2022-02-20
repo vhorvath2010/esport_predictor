@@ -1,10 +1,8 @@
 import numpy as np
 import torch
-
 from model import Model
 import torch.optim as optim
 import torch.nn as nn
-from match import Match
 
 # Load data
 train = np.load('train.npy', allow_pickle=True)
