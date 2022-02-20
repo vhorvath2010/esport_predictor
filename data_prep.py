@@ -6,9 +6,13 @@ from match import Match
 import numpy as np
 
 
-def generate_match_array(_match_data):
+def generate_match_inputs(_match_data):
     return [_match_data[1], _match_data[2], _match_data[3], _match_data[4], _match_data[6], _match_data[7],
-            _match_data[8], _match_data[9], _match_data[10], _match_data[11], _match_data[12], _match_data[13]]
+            _match_data[8], _match_data[9], _match_data[10]]
+
+
+def generate_match_outputs(_match_data):
+    return [_match_data[11], _match_data[12], _match_data[13]]
 
 
 def generate_match(_match_array):
@@ -20,15 +24,24 @@ def generate_match(_match_array):
 # Open match data
 with open('match_data.csv') as match_data_file:
     match_data_reader = csv.reader(match_data_file)
+
     # Read in the first row (labels)
     labels = match_data_reader.__next__()
-    # Load in all matches and generate match arrays to standardize
-    match_arrays = []
+
+    # Load in all inputs and outputs and generate match arrays to standardize
+    x = []
+    y = []
     for match_data in match_data_reader:
-        match_arrays.append(generate_match_array(match_data))
-    # Standardize matches
+        x.append(generate_match_inputs(match_data))
+        y.append(generate_match_outputs(match_data))
+
+    # Standardize inputs
     scalar = StandardScaler()
-    match_arrays = scalar.fit_transform(match_arrays)
+    x = scalar.fit_transform(x)
+
+    # Combine x and y into match arrays
+    match_arrays = np.concatenate((x, y), axis=1)
+
     # Load Match objects
     matches = []
     for match_array in match_arrays:
