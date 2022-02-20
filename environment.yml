@@ -7,7 +7,9 @@ dependencies:
   - ca-certificates=2021.10.26=haa95532_4
   - certifi=2021.10.8=py38haa95532_2
   - cffi=1.15.0=py38h2bbff1b_1
+  - icc_rt=2019.0.0=h0cc432a_1
   - intel-openmp=2019.4=245
+  - joblib=1.1.0=pyhd3eb1b0_0
   - libmklml=2019.0.5=haa95532_0
   - mkl=2019.4=245
   - mkl-service=2.3.0=py38h196d8e1_0
@@ -21,9 +23,12 @@ dependencies:
   - pycparser=2.21=pyhd3eb1b0_0
   - python=3.8.12=h6244533_0
   - pytorch=1.6.0=cpu_py38h538a6d7_0
+  - scikit-learn=1.0.2=py38hf11a4ad_1
+  - scipy=1.6.2=py38h14eb087_0
   - setuptools=58.0.4=py38haa95532_0
   - six=1.16.0=pyhd3eb1b0_1
   - sqlite=3.37.2=h2bbff1b_0
+  - threadpoolctl=2.2.0=pyh0d69192_0
   - tzdata=2021e=hda174b7_0
   - vc=14.2=h21ff451_1
   - vs2015_runtime=14.27.29016=h5e58377_2
