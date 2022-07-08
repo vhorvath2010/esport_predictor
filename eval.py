@@ -18,8 +18,8 @@ for match in test:
     x = torch.tensor([match.get_t1_rank(), match.get_t1_form(), match.get_h2h(), match.get_t2_rank(),
                       match.get_t2_form()], device=device).float()
     y = match.res
-    y_hat = model(x).item()
-    if y == round(y_hat):
+    y_hat = round(model(x).item())
+    if y == y_hat:
         correct_picks += 1
 
 print("Correctly predicted:", correct_picks/len(test) * 100, "percent")

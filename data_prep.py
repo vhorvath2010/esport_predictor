@@ -32,12 +32,12 @@ with open('match_data.csv') as match_data_file:
     x = []
     y = []
     for match_data in match_data_reader:
-        x.append(generate_match_inputs(match_data))
-        y.append(generate_match_outputs(match_data))
+        x.append([int(data) for data in generate_match_inputs(match_data)])
+        y.append([int(data) for data in generate_match_outputs(match_data)])
 
     # Standardize inputs
-    scalar = StandardScaler()
-    x = scalar.fit_transform(x)
+    # scalar = StandardScaler()
+    # x = scalar.fit_transform(x)
 
     # Combine x and y into match arrays
     match_arrays = np.concatenate((x, y), axis=1)
