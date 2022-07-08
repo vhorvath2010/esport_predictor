@@ -35,17 +35,15 @@ with open('match_data.csv') as match_data_file:
         x.append([int(data) for data in generate_match_inputs(match_data)])
         y.append([int(data) for data in generate_match_outputs(match_data)])
 
-    # Standardize inputs
-    # scalar = StandardScaler()
-    # x = scalar.fit_transform(x)
-
     # Combine x and y into match arrays
     match_arrays = np.concatenate((x, y), axis=1)
 
     # Load Match objects
     matches = []
     for match_array in match_arrays:
-        matches.append(generate_match(match_array))
+        # Add match only if both teams are ranked in top 250
+        if (match_array[0] and match_array[4] != 0) and (match_array[0] and match_array[4] <= 250):
+            matches.append(generate_match(match_array))
     # Save training and testing data using numpy and pickle
     np.random.shuffle(matches)
     train_percent = 0.80

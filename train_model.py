@@ -18,7 +18,7 @@ print("Training on:", device)
 model.to(device)
 
 # Begin training model
-epochs = 100
+epochs = 500
 for epoch in range(1, epochs + 1):
     running_loss = 0.0
     for match in train:
