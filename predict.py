@@ -20,5 +20,7 @@ t1_form = int(input("Enter the first team's form: "))
 t2_form = int(input("Enter the second team's form: "))
 x = torch.tensor([t1_rank, t1_form, h2h, t2_rank, t2_form], device=device).float()
 
-y_hat = round(model(x).item())
-print("the", "first" if y_hat == 1 else "second", "team is predicted to win")
+y_hat = model(x).item()
+t1_win = round(y_hat) == 1
+print("the", "first" if t1_win else "second", "team is predicted to win with",
+      y_hat * 100 if t1_win else (1 - y_hat) * 100, "% certainty")
