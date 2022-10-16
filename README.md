@@ -1,2 +1,2 @@
-# csgo_match_pred
-A neural network to predict CSGO matches
+# esport_predictor
+A neural network to predict the outcome of Esport (CSGO) matches
